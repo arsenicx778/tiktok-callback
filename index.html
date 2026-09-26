@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>TikTok Sign-in</title>
+<style>
+  :root { --bg: #f7f7f5; --fg: #111; --muted: #555; --card: #fff; --line: #ddd; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #eee; --muted: #aaa; --card: #1b1b1b; --line: #333; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 -apple-system, system-ui, sans-serif; }
+  main { max-width: 560px; margin: 12vh auto; padding: 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+  h1 { font-size: 1.3rem; margin: 0 0 8px; }
+  p { color: var(--muted); margin: 8px 0; }
+  code { word-break: break-all; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1 id="title">TikTok sign-in</h1>
+    <p id="msg">This page is only a redirect target for a local publishing script.</p>
+    <p>Copy the <strong>full address from your browser's address bar</strong> and paste it into the terminal that is waiting for it. Nothing is stored or sent by this page.</p>
+  </div>
+</main>
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get("code")) { document.getElementById("title").textContent = "TikTok sign-in complete"; }
+  if (q.get("error")) { document.getElementById("title").textContent = "TikTok sign-in failed: " + q.get("error"); }
+</script>
+</body>
+</html>
